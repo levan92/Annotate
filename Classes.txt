@@ -1,0 +1,16 @@
+Annotation Classes:
+0: Unknown
+1: Floor
+2: Background (Wall, Ceiling)
+3: Large furnitures usually in the background (Cupboards, Door, Partitions, Windows)
+4: Furnitures with legs (Table, Chairs)
+5: Large objects (Dustbin, CPUs, large bottle, fire extinguisher)
+6: Small objects (Any individual items: pen, litter, paper, wire, phone, etc)
+
+
+
+Training Class: 
+0: Unknown
+1: Floor
+2: Background + Large Bg Furnitures
+3: Large Objs + Small Objs
