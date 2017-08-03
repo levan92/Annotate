@@ -1,25 +1,28 @@
 import argparse
 import os
+import subprocess
 
-def main(image_dir, annot_dir):
-    # for image in os.scan(image_dir):
-    #     if image.name.endswith('_rgb.jpg'):
-    #         print('opening annotation tool for',image.name)
-    #         newname = image.name.replace('_rgb.jpg','_label.json')
-    #         new_path = os.path.join(annot_dir, newname)
-    #         if os.path.exists(new_path):
-    #             print('Annot for',image.name,'exists, moving on to next image.')
-    #             continue
-    #         os.system('labelme '+image+' -O '+os.path.join(annot_dir,newname))
-    #         print('annotation completed for',imagename)
-    #     else: 
-    #         print('Image format wrong, moving on the next image')
-    print('Finished annotating all images, annotations in',annot_dir,':',
-    len([i in for i in os.listdir(annot_dir) if i.endswith('_label.json')]))
+def main(image_path, annot_dir):
+    image_name = os.path.basename(image_path)
+    newname = image_name.replace('_rgb.jpg','_label.json')
+    new_path = os.path.join(annot_dir, newname)
+    if os.path.exists(new_path):
+        print('Annot for',image.name,'exists.')
+        return
+    print('Opening annotation tool for',image_name)
+    p = subprocess.Popen(['labelme',image_path,'-O',new_path])
+    try:
+        p.wait()
+    except KeyboardInterrupt:
+        print('\nInterrupted, terminating annotation.')
+        p.terminate()
+        return
+    print('Annotation completed for',image.name)
+    return
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('image_dir',help='dir of images to be annotated',type=str)
+    parser.add_argument('image_path',help='path of image to be annotated',type=str)
     parser.add_argument('annot_dir',help='save directory',type=str)
     args = parser.parse_args()
-    main(args.image_dir, args.annot_dir)
+    main(args.image_path, args.annot_dir)
