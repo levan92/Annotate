@@ -7,13 +7,26 @@ Annotation Classes:
 5: Large objects (Dustbin, CPUs, large bottle, fire extinguisher)
 6: Small objects (Any individual items: pen, litter, paper, wire, phone, etc)
 
-Training Class: 
+Training Class for dataset_1:
+0: Unknown
+1: Floor
+2: Background 
+3: Large Bg Furnitures, Larger Objs, Small Objs
+
+Training Class for dataset_2:
 0: Unknown
 1: Floor
 2: Background
-3: Large Bg Furnitures + Large Objs + Small Objs
+3: Large Bg Furnitures, Larger Objs
+4: Small Objs (only those placed in by me)
 
-Training Class: 
+Training Class for dataset_3: 
+0: Unknown
+1: Floor
+2: Background + Large Bg Furnitures
+3: Large Objs + Small Objs
+
+Training Class (possibility): 
 0: Unknown
 1: Floor
 2: Background
