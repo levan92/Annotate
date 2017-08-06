@@ -8,6 +8,10 @@ Annotation Classes:
 6: Small objects (Any individual items: pen, litter, paper, wire, phone, etc)
 
 
+{'dataset_num':1, 'background':0, '1':1, '2':2, '3':3, '4':3, '5':3, '6':3}
+(maps 'furniture usually bg' to 'object')
+{'dataset_num':1, 'background':0, '1':1, '2':2, '3':2, '4':3, '5':3, '6':3} 
+(maps 'furniture usually bg' to 'bg')
 Training Class for dataset_1:
 0: Unknown
 1: Floor
@@ -21,7 +25,7 @@ Training Class for dataset_2:
 3: Large Bg Furnitures, Larger Objs
 4: Small Objs (only those placed in by me)
 
-{0:0, 1:1, 2:2, 3:2, 4:2, 5:3, 6:3}
+{'dataset_num':3, 'background':0, '1':1, '2':2, '3':2, '4':2, '5':3, '6':3}
 Training Class for dataset_3: 
 0: Unknown
 1: Floor
