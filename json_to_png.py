@@ -18,11 +18,12 @@ def main(annot_dir):
                   completed,'/',total)
             p.terminate()
             return
+        os.remove(os.path.join(new_folder, 'image.png'))
         print(json.name,'converted to png')
     print('All jsons in dir converted to png.')
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('annot_dir',help='save directory',type=str)
+    parser.add_argument('annot_dir',help='Directory of json files',type=str)
     args = parser.parse_args()
     main(args.annot_dir)
