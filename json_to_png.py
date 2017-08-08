@@ -18,7 +18,7 @@ def main(annot_dir):
                   completed,'/',total)
             p.terminate()
             return
-        os.remove(os.path.join(new_folder, 'image.png'))
+        os.remove(os.path.join(new_folder, 'img.png'))
         print(json.name,'converted to png')
     print('All jsons in dir converted to png.')
 
