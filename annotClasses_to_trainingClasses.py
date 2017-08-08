@@ -12,6 +12,11 @@ mapping = {'dataset_num':1, 'background':0, '1':1, '2':2, '3':2, '4':3, '5':3, '
 def main(annot_dir):
     for folder in os.scandir(annot_dir):
         if folder.is_dir() and folder.name.endswith('label_json'):
+            new_label_name = 'label_dataset' + str(mapping['dataset_num']) + '.png'
+            new_label_path = os.path.join(folder.path, new_label_name)
+            if os.path.exists(new_label_path):
+                print(folder.name,'already has processed',new_label_name)
+                continue
             print('Processing',folder.name)
             yaml_path = os.path.join(folder.path, 'info.yaml')
             with open(yaml_path, 'r') as stream:
@@ -25,8 +30,6 @@ def main(annot_dir):
                     idx = pix[x,y]
                     annot_label = label_names_dict['label_names'][idx]
                     pix[x,y] = mapping[annot_label]
-            new_label_name = 'label_dataset' + str(mapping['dataset_num']) + '.png'
-            new_label_path = os.path.join(folder.path, new_label_name)
             print('saving as',new_label_path)
             im.save(new_label_path)
     print('All done.')
