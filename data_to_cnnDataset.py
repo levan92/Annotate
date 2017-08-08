@@ -29,5 +29,5 @@ if __name__ == "__main__":
     parser.add_argument('save_dir',help='save dir of dataset',type=str)
     parser.add_argument('label_dataset',type=str,help='classes of dataset used for label, e.g.: dataset1, dataset2, etc')
     args = parser.parse_args()
-    main(os.path.pathnorm(args.image_dir), os.path.pathnorm(args.label_dir),
-     os.path.pathnorm(args.save_dir), str(args.label_dataset))
+    main(os.path.normpath(args.image_dir), os.path.normpath(args.label_dir),
+     os.path.normpath(args.save_dir), str(args.label_dataset))
