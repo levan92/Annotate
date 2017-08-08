@@ -3,6 +3,9 @@ import os
 import shutil
 
 def main(image_dir, label_dir, save_dir):
+    if not os.path.exists(save_dir):
+        os.mkdir(save_dir)
+        print('Created',save_dir)
     for image in os.scandir(image_dir):
         if image.name.endswith('_rgb.jpg'):
             shutil.copy(image.path, save_dir)
